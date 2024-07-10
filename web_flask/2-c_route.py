@@ -30,7 +30,7 @@ def c(text):
     """
     C {}
     """
-    return "C {}".format(escape(text))
+    return "C {}".format(escape(text.replace("_", " ")))
 
 
 if __name__ == '__main__':
