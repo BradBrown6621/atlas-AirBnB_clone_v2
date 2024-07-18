@@ -18,3 +18,12 @@ class State(BaseModel, Base):
     else:
         name = ""
     cites = []
+
+    if models.storage_t != "db":
+        @property
+        def cities(self):
+            """
+            cities getter for instances linked to a state
+            """
+            return [city for city in models.storage.all(City).values()
+                    if city.state_id == self.id]
